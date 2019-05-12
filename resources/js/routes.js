@@ -27,7 +27,7 @@ const router = new VueRouter({
             component: Product
         },
         {
-            path: '/view/product/:product/edit',
+            path: '/view/product/edit',
             name: 'productEdit',
             component: ProductEdit,
             props: true

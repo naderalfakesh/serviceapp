@@ -14,7 +14,7 @@ class ProductControllerApi extends Controller
      */
     public function index()
     {
-        $product = product::paginate(10);
+        $product = product::orderBy('created_at','DESC')->paginate(10);
         return productResource::collection($product);
     }
 
@@ -26,7 +26,14 @@ class ProductControllerApi extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $product = new product;
+      if($product->create($request->all())){
+        return new productResource($product);
+      }
+      else {
+        // return new productResource($request);
+        return;
+      }
     }
 
     /**
@@ -49,7 +56,13 @@ class ProductControllerApi extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $product = product::find($id);
+       if($product->update($request->except('id'))){
+           return new productResource($product);
+       }
+       else{
+           return new productResource(0);
+       }  //
     }
 
     /**
@@ -59,7 +72,8 @@ class ProductControllerApi extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {    $product = product::find($id); 
+    {
+       $product = product::find($id);
         if($product->delete()){
             return new productResource($product);
         }

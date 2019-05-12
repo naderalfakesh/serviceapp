@@ -12,8 +12,9 @@
 */
 
 Route::get('/view/{any}',  'mainController@index')->where('any','.*');
+//Route::get('/{any}',  'mainController@index')->where('any','.*');
 
 Route::apiResources([
-    'api/product' => 'ProductControllerApi'
+    '/api/product' => 'ProductControllerApi'
     // ,'posts' => 'ServiceController'
 ]);
