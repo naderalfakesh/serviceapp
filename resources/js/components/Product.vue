@@ -1,4 +1,6 @@
 <template >
+    <div>
+      <My-header title='Products'></My-header>
     <div class="container card">
       <div class="card">
         <button type="button" name="button" class="btn btn-primary"
@@ -92,6 +94,7 @@
           </div>
         </div>
 
+     </div>
     </div>
 </template>
 

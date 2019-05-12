@@ -12,7 +12,8 @@
 */
 
 Route::get('/view/{any}',  'mainController@index')->where('any','.*');
-//Route::get('/{any}',  'mainController@index')->where('any','.*');
+Route::get('/', function (){return redirect('/view/home');});
+Route::get('/view', function (){return redirect('/view/home');});
 
 Route::apiResources([
     '/api/product' => 'ProductControllerApi'

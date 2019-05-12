@@ -1,3 +1,5 @@
 <template>
-    <div>About page</div>
+    <div>
+        <My-header title='About page'></My-header>
+    </div>
 </template>

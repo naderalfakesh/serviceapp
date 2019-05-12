@@ -1,18 +1,19 @@
-<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+<template>
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link " href="/view/home">
+            <a class="nav-link " href="/view/home" :class="this.$route.name=='home' ? 'active ' : '' " >
             Dashboard <span class="sr-only">(current)</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="/view/about">
-            About
+            <a class="nav-link" href="/view/about" :class="this.$route.name=='about' ? 'active' : '' " >
+            About 
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/view/product">
+            <a class="nav-link" href="/view/product" :class="this.$route.name=='product' ? 'active' : '' " >
             Products
             </a>
         </li>
@@ -62,3 +63,14 @@
         </ul>
     </div>
 </nav>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>

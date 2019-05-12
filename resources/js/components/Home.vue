@@ -1,3 +1,5 @@
 <template>
-    <div>Home page</div>
+    <div>
+        <My-header title='Home page'></My-header>
+    </div>
 </template>

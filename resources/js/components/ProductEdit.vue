@@ -1,5 +1,6 @@
 <template>
     <div>
+      <My-header title='Product Edit'></My-header>
         <form action="" method="post">
             <div class="form-group">
               <label for="type">Product type:</label>
