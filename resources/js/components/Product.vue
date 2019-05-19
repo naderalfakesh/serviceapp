@@ -116,9 +116,6 @@ export default {
             pagination: '',
         };
 },
-// components: {
-//     product-edit-component
-// },
 
 created() {
     this.fetchProducts();

@@ -27,7 +27,14 @@ class companyControllerApi extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $company = new company;
+      if($company->create($request->all())){
+        return new companyResource($company);
+      }
+      else {
+        // return new productResource($request);
+        return;
+      }
     }
 
     /**
@@ -48,9 +55,15 @@ class companyControllerApi extends Controller
      * @param  \App\company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, company $company)
+    public function update(Request $request, $id)
     {
-        //
+        $company = company::find($id);
+       if($company->update($request->except('id'))){
+           return new companyResource($company);
+       }
+       else{
+           return new companyResource(0);
+       } 
     }
 
     /**
@@ -59,8 +72,14 @@ class companyControllerApi extends Controller
      * @param  \App\company  $company
      * @return \Illuminate\Http\Response
      */
-    public function destroy(company $company)
+    public function destroy($id)
     {
-        //
+        $company = company::find($id);
+        if($company->delete()){
+            return new companyResource($company);
+        }
+        else{
+            return new companyResource(0);
+        }
     }
 }

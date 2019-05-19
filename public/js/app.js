@@ -1880,9 +1880,6 @@ __webpack_require__.r(__webpack_exports__);
       pagination: ''
     };
   },
-  // components: {
-  //     product-edit-component
-  // },
   created: function created() {
     this.fetchProducts(); // console.log();
   },
@@ -2231,7 +2228,7 @@ __webpack_require__.r(__webpack_exports__);
         }).then(function (res) {
           return res.json();
         }).then(function (data) {
-          _this2.fetchCompany();
+          _this2.fetchCompanies();
         })["catch"](function (err) {
           return console.log(err);
         });
@@ -2250,10 +2247,102 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         return res.json();
       }).then(function (data) {
-        _this3.fetchCompany();
+        _this3.fetchCompanies();
       })["catch"](function (err) {
         return console.log(err);
       });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/companyEdit.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/companyEdit.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['company'],
+  data: function data() {
+    return {
+      csrfToken: document.querySelector("meta[name=\"csrf-token\"]").getAttribute("content")
+    };
+  },
+  methods: {
+    updateCompany: function updateCompany(id) {
+      var _this = this;
+
+      if (confirm('Are you sure')) {
+        fetch("/api/company/".concat(id), {
+          method: 'put',
+          headers: {
+            "X-CSRF-Token": this.csrfToken,
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(this.company)
+        }).then(function (res) {
+          return res.json();
+        }).then(function (data) {
+          _this.$router.push({
+            name: "company"
+          });
+        })["catch"](function (err) {
+          return console.log(err);
+        });
+      }
     }
   }
 });
@@ -2453,7 +2542,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\ntr:hover td[data-v-7e94e6d4]{\r\n    color: red;\r\n    -webkit-text-decoration-line: underline;\r\n            text-decoration-line: underline;\r\n    background-color: grey;\n}\ntable .hidden-row[data-v-7e94e6d4]{\r\npadding: 0 8px;\n}\r\n", ""]);
+exports.push([module.i, "\ntr:hover td[data-v-7e94e6d4]{\n    color: red;\n    -webkit-text-decoration-line: underline;\n            text-decoration-line: underline;\n    background-color: grey;\n}\ntable .hidden-row[data-v-7e94e6d4]{\npadding: 0 8px;\n}\n", ""]);
 
 // exports
 
@@ -22086,6 +22175,310 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/companyEdit.vue?vue&type=template&id=cb1520a8&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/companyEdit.vue?vue&type=template&id=cb1520a8& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("My-header", { attrs: { title: "Company Edit" } }),
+      _vm._v(" "),
+      _c("form", { attrs: { action: "", method: "post" } }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "type" } }, [_vm._v("Company type:")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.company.type,
+                  expression: "company.type"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { name: "type", id: "" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.company,
+                    "type",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c(
+                "option",
+                {
+                  attrs: { value: "WEG Branch" },
+                  domProps: {
+                    selected: _vm.company.type == "WEG Branch" ? true : false
+                  }
+                },
+                [_vm._v("WEG Branch")]
+              ),
+              _vm._v(" "),
+              _c(
+                "option",
+                {
+                  attrs: { value: "Customer" },
+                  domProps: {
+                    selected: _vm.company.type == "Customer" ? true : false
+                  }
+                },
+                [_vm._v("Customer")]
+              ),
+              _vm._v(" "),
+              _c(
+                "option",
+                {
+                  attrs: { value: "Requesting company" },
+                  domProps: {
+                    selected:
+                      _vm.company.type == "Requesting company" ? true : false
+                  }
+                },
+                [_vm._v("Requesting company")]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "name" } }, [_vm._v("Name:")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.company.name,
+                expression: "company.name"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", name: "name" },
+            domProps: { value: _vm.company.name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.company, "name", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "email" } }, [_vm._v("Email:")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.company.email,
+                expression: "company.email"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", name: "email" },
+            domProps: { value: _vm.company.email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.company, "email", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: " " } }, [_vm._v("Website: ")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.company.website,
+                expression: "company.website"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text" },
+            domProps: { value: _vm.company.website },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.company, "website", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: " " } }, [_vm._v("Phone: ")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.company.phone,
+                expression: "company.phone"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text" },
+            domProps: { value: _vm.company.phone },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.company, "phone", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: " " } }, [_vm._v("Tax Adminstration: ")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.company.taxAdmin,
+                expression: "company.taxAdmin"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text" },
+            domProps: { value: _vm.company.taxAdmin },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.company, "taxAdmin", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: " " } }, [_vm._v("Tax number: ")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.company.taxNumber,
+                expression: "company.taxNumber"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text" },
+            domProps: { value: _vm.company.taxNumber },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.company, "taxNumber", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: " " } }, [_vm._v("Address: ")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.company.address,
+                expression: "company.address"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text" },
+            domProps: { value: _vm.company.address },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.company, "address", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { type: "button", name: "submit" },
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  $event.preventDefault()
+                  return _vm.updateCompany(_vm.company.id)
+                }
+              }
+            },
+            [_vm._v("Save")]
+          )
+        ])
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -63679,6 +64072,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/companyEdit.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/companyEdit.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _companyEdit_vue_vue_type_template_id_cb1520a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./companyEdit.vue?vue&type=template&id=cb1520a8& */ "./resources/js/components/companyEdit.vue?vue&type=template&id=cb1520a8&");
+/* harmony import */ var _companyEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./companyEdit.vue?vue&type=script&lang=js& */ "./resources/js/components/companyEdit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _companyEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _companyEdit_vue_vue_type_template_id_cb1520a8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _companyEdit_vue_vue_type_template_id_cb1520a8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/companyEdit.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/companyEdit.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/companyEdit.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_companyEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./companyEdit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/companyEdit.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_companyEdit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/companyEdit.vue?vue&type=template&id=cb1520a8&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/companyEdit.vue?vue&type=template&id=cb1520a8& ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_companyEdit_vue_vue_type_template_id_cb1520a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./companyEdit.vue?vue&type=template&id=cb1520a8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/companyEdit.vue?vue&type=template&id=cb1520a8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_companyEdit_vue_vue_type_template_id_cb1520a8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_companyEdit_vue_vue_type_template_id_cb1520a8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/my-header.vue":
 /*!***********************************************!*\
   !*** ./resources/js/components/my-header.vue ***!
@@ -63903,6 +64365,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_components_Product__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/js/components/Product */ "./resources/js/components/Product.vue");
 /* harmony import */ var _js_components_ProductEdit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/js/components/ProductEdit */ "./resources/js/components/ProductEdit.vue");
 /* harmony import */ var _js_components_company__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/js/components/company */ "./resources/js/components/company.vue");
+/* harmony import */ var _js_components_companyEdit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/js/components/companyEdit */ "./resources/js/components/companyEdit.vue");
+
 
 
 
@@ -63934,6 +64398,11 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/view/company',
     name: 'company',
     component: _js_components_company__WEBPACK_IMPORTED_MODULE_6__["default"]
+  }, {
+    path: '/view/company/edit',
+    name: 'companyEdit',
+    component: _js_components_companyEdit__WEBPACK_IMPORTED_MODULE_7__["default"],
+    props: true
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
@@ -64027,8 +64496,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\clean\clean\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\clean\clean\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /opt/lampp/htdocs/clean/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /opt/lampp/htdocs/clean/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

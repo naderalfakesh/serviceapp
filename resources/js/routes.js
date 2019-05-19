@@ -6,6 +6,7 @@ import About from '@/js/components/About';
 import Product from '@/js/components/Product';
 import ProductEdit from '@/js/components/ProductEdit';
 import Company from '@/js/components/company';
+import CompanyEdit from '@/js/components/companyEdit';
 
 Vue.use(VueRouter);
 
@@ -37,6 +38,12 @@ const router = new VueRouter({
             path: '/view/company',
             name: 'company',
             component: Company
+        },
+        {
+            path: '/view/company/edit',
+            name: 'companyEdit',
+            component: CompanyEdit,
+            props: true
         }
     ]
 });

@@ -163,7 +163,7 @@ export default {
             })
             .then(res => res.json())
             .then(data =>{
-                this.fetchCompany();
+                this.fetchCompanies();
             })
             .catch(err => console.log(err));
         }
@@ -177,7 +177,7 @@ export default {
           })
           .then(res => res.json())
           .then(data =>{
-            this.fetchCompany();
+            this.fetchCompanies();
           })
           .catch(err => console.log(err));
 
