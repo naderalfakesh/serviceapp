@@ -154,9 +154,6 @@ methods: {
       };
       this.pagination = pagination;
     },
-    clickList: function (id) {
-    console.log("product " + id);
-    },
     deleteProduct(id){
         if (confirm('Are you sure')) {
             fetch(`/api/product/${id}` , {

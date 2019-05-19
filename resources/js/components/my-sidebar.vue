@@ -18,6 +18,11 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="/view/company" :class="this.$route.name=='company' ? 'active' : '' " >
+            Companies
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="#">
             Customers
             </a>

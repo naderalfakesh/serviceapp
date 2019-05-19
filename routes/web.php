@@ -16,6 +16,7 @@ Route::get('/', function (){return redirect('/view/home');});
 Route::get('/view', function (){return redirect('/view/home');});
 
 Route::apiResources([
-    '/api/product' => 'ProductControllerApi'
+    '/api/product' => 'ProductControllerApi',
+    '/api/company' => 'companyControllerApi'
     // ,'posts' => 'ServiceController'
 ]);

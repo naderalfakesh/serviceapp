@@ -5,6 +5,7 @@ import Home from '@/js/components/Home';
 import About from '@/js/components/About';
 import Product from '@/js/components/Product';
 import ProductEdit from '@/js/components/ProductEdit';
+import Company from '@/js/components/company';
 
 Vue.use(VueRouter);
 
@@ -31,6 +32,11 @@ const router = new VueRouter({
             name: 'productEdit',
             component: ProductEdit,
             props: true
+        },
+        {
+            path: '/view/company',
+            name: 'company',
+            component: Company
         }
     ]
 });
