@@ -23,6 +23,11 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="/view/contact" :class="this.$route.name=='contact' ? 'active' : '' " >
+            Contacts
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="#">
             Customers
             </a>

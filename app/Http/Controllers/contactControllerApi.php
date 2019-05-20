@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\http\Resources\contactResource;
 use App\contact;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,8 @@ class contactControllerApi extends Controller
      */
     public function index()
     {
-        //
+        $contact = contact::orderBy('id','DESC')->paginate(10);
+        return contactResource::collection($contact);
     }
 
     /**
@@ -25,7 +26,14 @@ class contactControllerApi extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contact = new contact;
+        if($contact->create($request->all())){
+            return new contactResource($contact);
+        }
+        else {
+        // return new productResource($request);
+        return;
+        }
     }
 
     /**
@@ -46,9 +54,15 @@ class contactControllerApi extends Controller
      * @param  \App\contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, contact $contact)
+    public function update(Request $request, $id)
     {
-        //
+        $contact = contact::find($id);
+        if($contact->update($request->except('id'))){
+            return new contactResource($contact);
+        }
+        else{
+            return new contactResource(0);
+        }
     }
 
     /**
@@ -57,8 +71,14 @@ class contactControllerApi extends Controller
      * @param  \App\contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(contact $contact)
+    public function destroy($id)
     {
-        //
+        $contact = contact::find($id);
+        if($contact->delete()){
+            return new contactResource($contact);
+        }
+        else{
+            return new contactResource(0);
+        }
     }
 }

@@ -18,6 +18,11 @@ class companyControllerApi extends Controller
         $company = company::orderBy('id','DESC')->paginate(10);
         return companyResource::collection($company);
     }
+    public function indexAll()
+    {
+        $company = company::orderBy('name');
+        return companyResource::collection($company);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -28,13 +33,13 @@ class companyControllerApi extends Controller
     public function store(Request $request)
     {
         $company = new company;
-      if($company->create($request->all())){
-        return new companyResource($company);
-      }
-      else {
+        if($company->create($request->all())){
+            return new companyResource($company);
+        }
+        else {
         // return new productResource($request);
         return;
-      }
+        }
     }
 
     /**
@@ -58,12 +63,12 @@ class companyControllerApi extends Controller
     public function update(Request $request, $id)
     {
         $company = company::find($id);
-       if($company->update($request->except('id'))){
-           return new companyResource($company);
-       }
-       else{
-           return new companyResource(0);
-       } 
+        if($company->update($request->except('id'))){
+            return new companyResource($company);
+        }
+        else{
+            return new companyResource(0);
+        } 
     }
 
     /**
