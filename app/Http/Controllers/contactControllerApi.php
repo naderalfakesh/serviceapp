@@ -14,7 +14,7 @@ class contactControllerApi extends Controller
      */
     public function index()
     {
-        $contact = contact::orderBy('id','DESC')->paginate(10);
+        $contact = contact::orderBy('id','DESC')->with('company')->paginate(10);
         return contactResource::collection($contact);
     }
 

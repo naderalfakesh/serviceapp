@@ -2444,6 +2444,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -22811,6 +22813,8 @@ var render = function() {
               return _c("tr", { key: contact.id }, [
                 _c("td", [_vm._v(_vm._s(contact.id))]),
                 _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(contact.company.name))]),
+                _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(contact.name))]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(contact.email))]),
@@ -23138,11 +23142,13 @@ var staticRenderFns = [
     return _c("thead", [
       _c("th", [_vm._v("#")]),
       _vm._v(" "),
-      _c("th", [_vm._v("name")]),
+      _c("th", [_vm._v("Company")]),
       _vm._v(" "),
-      _c("th", [_vm._v("email")]),
+      _c("th", [_vm._v("Name")]),
       _vm._v(" "),
-      _c("th", [_vm._v("phone")]),
+      _c("th", [_vm._v("Email")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Phone")]),
       _vm._v(" "),
       _c("th", [_vm._v("Actions")])
     ])

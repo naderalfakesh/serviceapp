@@ -9,14 +9,16 @@
         <table class="table  ">
             <thead>
                 <th>#</th>
-                <th>name</th>
-                <th>email</th>
-                <th>phone</th>
+                <th>Company</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
                 <th>Actions</th>
             </thead>
             <tbody>
                     <tr v-for="contact in contacts" v-bind:key="contact.id">
                     <td>{{contact.id}}</td>
+                    <td>{{contact.company.name}}</td>
                     <td>{{contact.name}}</td>
                     <td>{{contact.email}}</td>
                     <td>{{contact.phone }}</td>

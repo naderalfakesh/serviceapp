@@ -48,9 +48,14 @@ class companyControllerApi extends Controller
      * @param  \App\company  $company
      * @return \Illuminate\Http\Response
      */
-    public function show(company $company)
+    public function show($id)
     {
-        
+        if($company = company::find($id) ){
+            return new companyResource($company);
+        }
+        else{
+            return new companyResource(0);
+        }
     }
 
     /**
